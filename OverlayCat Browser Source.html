@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://127.0.0.1:17338/overlay -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OverlayCat Browser Source</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: transparent !important;
+        color-scheme: dark;
+      }
+
+      html.preview,
+      html.preview body {
+        background-color: #101a23;
+        background-image:
+          linear-gradient(45deg, #1d2b37 25%, transparent 25%),
+          linear-gradient(-45deg, #1d2b37 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #1d2b37 75%),
+          linear-gradient(-45deg, transparent 75%, #1d2b37 75%);
+        background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+        background-size: 24px 24px;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #overlay {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        transform-origin: center;
+        background: transparent !important;
+      }
+
+      #sceneBackground {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+      }
+
+      .sprite-layer {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .background { z-index: 0; }
+      .body { z-index: 10; }
+      .expression { z-index: 15; transform-origin: 0 0; }
+      .foreground { z-index: 25; }
+      .left-hand { z-index: 31; }
+      .right-hand { z-index: 32; }
+      .key-frame { z-index: 35; }
+      .key-frame.character { z-index: 10; }
+      .mouse-frame { z-index: 40; }
+      #overlay.mouse-active .expression { z-index: 41; }
+      #overlay.mouse-active .right-hand { z-index: 45; }
+      #overlay.mouse-active .key-frame { z-index: 46; }
+
+      #loading {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.88);
+        font: 600 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="overlay" style="opacity: 1; border-radius: 0%; transform: none;" class="">
+      <img id="sceneBackground" alt="">
+      <div id="loading" style="display: none;">Loading PNG Sprite model...</div>
+    <img class="sprite-layer background" data-source="/asset?path=D%3A%5CBongoCatOverlay%5Cassets%5Cmodels%5Ccharacters%5Csky-cat%5Cstyles%2Fmouse-keyboard%2Fbackground.png" src="./OverlayCat Browser Source_files/asset"><img class="sprite-layer right-hand" data-source="/asset?path=D%3A%5CBongoCatOverlay%5Cassets%5Cmodels%5Ccharacters%5Csky-cat%5Cstyles%2Fmouse-keyboard%2Fright-hand%2Fup.png" src="./OverlayCat Browser Source_files/asset(1)"><img class="sprite-layer body" data-source="/asset?path=D%3A%5CBongoCatOverlay%5Cassets%5Cmodels%5Ccharacters%5Csky-cat%5Cstyles%2Fmouse-keyboard%2Fpointer%2Fbody%5C0-4.png" src="./OverlayCat Browser Source_files/asset(2)"><img class="sprite-layer foreground" data-source="/asset?path=D%3A%5CBongoCatOverlay%5Cassets%5Cmodels%5Ccharacters%5Csky-cat%5Ccommon%2Fforeground.png" src="./OverlayCat Browser Source_files/asset(3)"><img class="sprite-layer left-hand" data-source="/asset?path=D%3A%5CBongoCatOverlay%5Cassets%5Cmodels%5Ccharacters%5Csky-cat%5Cstyles%2Fmouse-keyboard%2Fpointer%2Fleft-hand%5C0-4.png" src="./OverlayCat Browser Source_files/asset(4)"><img class="sprite-layer expression" data-source="/asset?path=D%3A%5CBongoCatOverlay%5Cassets%5Cmodels%5Ccharacters%5Csky-cat%5Ccommon%2Fexpressions%2Fwink.png" src="http://127.0.0.1:17338/asset?path=D%3A%5CBongoCatOverlay%5Cassets%5Cmodels%5Ccharacters%5Csky-cat%5Ccommon%2Fexpressions%2Fwink.png" style="transform: matrix(1.02157, -0.00555, 0.00555, 1.02157, 9.14278, -8.74284);"></div>
+
+    <script>
+      if (new URLSearchParams(location.search).get('preview') === '1') {
+        document.documentElement.classList.add('preview')
+        document.addEventListener('contextmenu', event => event.preventDefault())
+      }
+    </script>
+    <script src="./OverlayCat Browser Source_files/overlay-sprite.js.download"></script>
+  
+
+</body></html>
